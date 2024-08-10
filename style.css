@@ -315,6 +315,10 @@ nav {
     .service-description {
         font-size: 0.8em;
     }
+
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
 }
 
 
