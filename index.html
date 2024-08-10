@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Волжский Сервис</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="burger.css">
+    <script>
+        function menuOnClick() {
+            document.getElementById("menu-bar").classList.toggle("change");
+            document.getElementById("nav").classList.toggle("change");
+            document.getElementById("menu-bg").classList.toggle("change-bg");
+        }
+    </script>
+    <script src="scripts/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="content">
+        <header class="site-header">
+            <div class="logo" onclick="scrollToTop();">
+                <h1 style="font-family: Oldtimer;">Волжский Сервис</h1>
+                <h3 style="font-family: Luminova;">Аутсорсинговая компания</h3>
+            </div>
+
+            <div id="menu">
+                <div id="menu-bar" onclick="menuOnClick()">
+                  <div id="bar1" class="bar"></div>
+                  <div id="bar2" class="bar"></div>
+                  <div id="bar3" class="bar"></div>
+                </div>
+                <nav class="nav" id="nav">
+                  <ul>
+                    <li><a href="#about" onclick="menuOnClick()">О компании</a></li>
+                    <li><a href="#services" onclick="menuOnClick()">Услуги</a></li>
+                    <li><a href="#partners" onclick="menuOnClick()">Партнеры</a></li>
+                    <li><a href="#contacts" onclick="menuOnClick()">Контакты</a></li>
+                  </ul>
+                </nav> 
+              </div>
+            <div class="menu-bg" id="menu-bg"></div>
+            <span style="visibility: hidden;"><button class="button-21">Ты нашел пасхалку</button></span>
+
+            <nav id="nav-pc">
+                <span><a href="#about"><button class="button-21">О компании</button></a></span>
+                <span><a href="#services"><button class="button-21">Услуги</button></a></span>
+                <span><a href="#partners"><button class="button-21">Партнеры</button></a></span>
+                <span><a href="#contacts"><button class="button-21">Контакты</button></a></span>
+            </nav>
+        </header>
+
+        <div class="container">
+            <h1>«Волжский Сервис»</h1>
+            <p id="con1-p" style="margin-top: -20px;">Мы рады работать для <u style="color: #00ffff;">Вас</u></p>
+            <div>
+                <img class="screw1" src="imgs/screw.png">
+                <img class="screw2" src="imgs/screw2.png">
+            </div>
+            <div style="word-spacing: 60px; ">
+                <h2 class="con1-h2"><b style="font-family: AngstBold; color: #eeff00; font-size: 1.5em;">• </b><i style="font-family: AngstBold;">Отличное</i> качество</h4>
+                <h2 class="con1-h2"><b style="font-family: AngstBold; color: #00ff00; font-size: 1.5em;">• </b><i style="font-family: AngstBold;">Приятная</i> команда</h4>
+                <h2 class="con1-h2-last"><b style="color: #d308c9; font-size: 1.5em;">• </b><i style="font-family: AngstBold;">Доступные</i> цены</h4>
+            </div>
+            <div id="about"></div>
+        </div>
+
+        <div class="container2" id = "screw-background">
+            <h1 style="text-align: center;">О компании</h1>
+            <div style="margin-left: 40px;">
+                <p id="neededList">
+                    Для старта производства необходимо провести серьёзную работу: 
+                    <ul id="neededList">
+                        <li>Подобрать персонал, убедится в их квалификации и профессионализме потенциальных сотрудников;</li>
+                        <br>
+                        <li>Найти место для производства и грамотно оборудовать его;</li> 
+                        <br>
+                        <li>Наладить поставку материалов;</li> 
+                        <br>
+                        <li>Решить вопросы тех. присоединения;</li> 
+                        <br>
+                        <li>Наладить отношения с надзорными органами.</li>
+                        <br>
+                    </ul>
+                    Компания <b style="color: #00ffff;">ВОЛЖСКИЙ СЕРВИС</b> решит все эти задачи для Вас.
+                </p>
+            </div>
+            <div id="services"></div>
+        </div>
+
+        <div class="container2">
+            <h1 style="text-align: center;">Услуги</h1>
+            <div class="services-grid"></div>
+        </div>
+
+        <div style="height: 1px; width: 1px;"></div>
+        
+    </div>
+
+    <script>
+        function createCircle() {
+            const circle = document.createElement('div');
+            circle.classList.add('circle');
+            
+            const size = Math.random() * 150 + 30;
+            const depth = Math.random() * 0.5 + 0.5;
+            
+            circle.style.width = `${size}px`;
+            circle.style.height = `${size}px`;
+            circle.style.backgroundColor = 'rgba(0, 0, 255, 0.2)';
+            circle.style.boxShadow = `0 0 ${size/4}px rgba(0, 0, 255, 0.5)`;
+            circle.style.top = `${Math.random() * 100}vh`;
+            circle.style.left = `${Math.random() * 100}vw`;
+            circle.style.transform = `scale(${depth})`;
+            circle.style.zIndex = Math.floor(depth * 10);
+            
+            document.body.appendChild(circle);
+
+            const duration = Math.random() * 20000 + 10000;
+            const tx = Math.random() * 200;
+            const ty = Math.random() * 200;
+            const rotation = Math.random() * 720 - 360;
+
+            circle.animate([
+                { transform: `scale(${depth}) translate(0, 0) rotate(0deg)`, opacity: 0 },
+                { opacity: depth, offset: 0.1 },
+                { transform: `scale(${depth}) translate(${tx}px, ${ty}px) rotate(${rotation}deg)`, opacity: depth },
+                { transform: `scale(${depth}) translate(0, 0) rotate(0deg)`, opacity: 0 }
+            ], {
+                duration: duration,
+                easing: 'ease-in-out',
+                iterations: Infinity
+            });
+
+            setTimeout(() => {
+                circle.remove();
+            }, duration);
+        }
+
+        function generateCircles() {
+            for (let i = 0; i < 16; i++) {
+                setTimeout(createCircle, i * 200);
+            }
+        }
+
+        generateCircles();
+        setInterval(generateCircles, 10000);
+
+        function scrollToTop() {
+            window.scrollTo(0, 0);
+            history.pushState(null, null, '#');
+        }
+    </script>
+    <script src="scripts/services-worker.js"></script>
+</body>
+</html>
