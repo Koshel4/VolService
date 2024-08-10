@@ -14,6 +14,7 @@
         }
     </script>
     <script src="scripts/jquery-3.7.1.min.js"></script>
+    <script src="scripts/essentials.js"></script>
 </head>
 <body>
     <div class="content">
@@ -145,9 +146,16 @@
         generateCircles();
         setInterval(generateCircles, 10000);
 
-        function scrollToTop() {
-            document.body.scrollTo(0, 0);
-            history.pushState(null, null, '#');
+        if ($(document).width() < 1000) {
+            document.body.addEventListener("scroll", (event) => {
+                if (document.body.scrollTop > 20) {
+                    let opacity = lerp(1, 0, (document.body.scrollTop - 20) / 120);
+                    opacity = Math.max(0, Math.min(1, opacity));
+                    $(".logo h3").css("opacity", opacity);
+                } else {
+                    $(".logo h3").css("opacity", 1);
+                }
+            });
         }
     </script>
     <script src="scripts/services-worker.js"></script>
