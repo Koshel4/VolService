@@ -315,21 +315,13 @@ nav {
     .service-description {
         font-size: 0.8em;
     }
-
-    ::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 0px;
-    }
-
-    * {
-        scrollbar-width: none;
-    }
 }
 
 
 
 ::-webkit-scrollbar {
-    width: 12px;
+    -webkit-appearance: none;
+        width: 0px;
 }
 
 ::-webkit-scrollbar-track {
@@ -348,6 +340,6 @@ nav {
 }
 
 * {
-    scrollbar-width: thin;
+    scrollbar-width: none;
     scrollbar-color: #2980b9 #0f1038;
 }
