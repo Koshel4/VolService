@@ -34,7 +34,6 @@ html,body {
         margin: 0 auto;
 }
 
-/* CSS */
 .button-21 {
   align-items: center;
   appearance: none;
@@ -172,6 +171,8 @@ nav {
     background-position: center;
 }
 
+/* ----Services box---- */
+
 #services {
     background-color: rgba(21, 72, 167, 0.096);
 }
@@ -220,6 +221,137 @@ nav {
     margin: 0;
     color: #FFFFFF;
 }
+
+/* ----Service window---- */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1030;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    transition: 0.3s ease-out;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: linear-gradient(135deg, rgba(12, 31, 85, 0.9), rgba(11, 36, 90, 0.7));
+    margin: 0 auto;
+    padding: 0;
+    border: 2px solid #3EB2FD;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 900px;
+    height: auto;
+    max-height: 80%;
+    color: #FFFFFF;
+    font-family: Angst, sans-serif;
+    box-shadow: 0 0 20px rgba(62, 178, 253, 0.3);
+    transform: scale(0.9);
+    transition: all 0.3s ease-in-out;
+    overflow: auto;
+    scrollbar-width: none;
+  }
+  
+  .modal.show .modal-content {
+    transform: scale(1);
+  }
+  
+  .modal-header {
+    background: rgba(15, 16, 56, 0.8);
+    padding: 20px 30px;
+    border-bottom: 1px solid #3EB2FD;
+    position: sticky;
+    top: 0px;
+  }
+  
+  .modal-body {
+    padding: 30px;
+  }
+  
+  .close {
+    color: #3EB2FD;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #4F58FD;
+    text-decoration: none;
+    transform: rotate(90deg);
+  }
+  
+  #modalTitle {
+    font-family: Oldtimer, sans-serif;
+    font-size: 1.8em;
+    margin: 0;
+    margin-right: 25px;
+    color: #3EB2FD;
+  }
+  
+  #modalDescription {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  
+  .gallery-title {
+    font-family: Oldtimer, sans-serif;
+    font-size: 1.5em;
+    color: #3EB2FD;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  #imageGallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  #imageGallery .image-container {
+    width: calc(33.333% - 20px);
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(62, 178, 253, 0.4);
+    transition: all 0.3s ease;
+  }
+  
+  #imageGallery .image-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(79, 88, 253, 0.6);
+  }
+  
+  #imageGallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .modal-image-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(62, 178, 253, 0.5);
+  }
 
 @font-face {
     font-family: Luminova;
@@ -340,6 +472,35 @@ nav {
         font-size: 0.8em;
     }
 
+    .modal-content {
+        width: 90%;
+        margin: 5% auto;
+      }
+      
+      .modal-header {
+        padding: 15px 20px;
+      }
+      
+      .modal-body {
+        padding: 20px;
+      }
+      
+      #imageGallery img {
+        max-width: 100%;
+      }
+      
+      #modalTitle {
+        font-size: 1.1em;
+      }
+      
+      #modalDescription {
+        font-size: 1em;
+      }
+      
+      .gallery-title {
+        font-size: 1.3em;
+      }
+
     ::-webkit-scrollbar {
         -webkit-appearance: none;
         width: 0px;
@@ -348,4 +509,18 @@ nav {
     * {
         scrollbar-width: none;
     }
+
+    @media (max-width: 768px) {
+        #imageGallery .image-container {
+          width: calc(50% - 20px);
+          height: 150px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        #imageGallery .image-container {
+          width: 100%;
+          height: 200px;
+        }
+      }
 }

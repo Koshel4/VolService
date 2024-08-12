@@ -6,13 +6,6 @@
     <title>Волжский Сервис</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="burger.css">
-    <script>
-        function menuOnClick() {
-            document.getElementById("menu-bar").classList.toggle("change");
-            document.getElementById("nav").classList.toggle("change");
-            document.getElementById("menu-bg").classList.toggle("change-bg");
-        }
-    </script>
     <script src="scripts/jquery-3.7.1.min.js"></script>
     <script src="scripts/essentials.js"></script>
 </head>
@@ -31,6 +24,7 @@
                   <div id="bar3" class="bar"></div>
                 </div>
                 <nav class="nav" id="nav">
+                <div id="menu-overlay" style="position: fixed; left: 0; top: 0; height: 100%; width: 100%; z-index: -1;"></div>
                   <ul>
                     <li><a href="#about" onclick="menuOnClick()">О компании</a></li>
                     <li><a href="#services" onclick="menuOnClick()">Услуги</a></li>
@@ -92,6 +86,26 @@
             <h1 style="text-align: center;">Услуги</h1>
             <div class="services-grid"></div>
         </div>
+
+        <div id="serviceModal" class="modal">
+            <div class="modal-content">
+              
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle"></h2>
+              </div>
+              <div class="modal-body">
+                <p id="modalDescription"></p>
+                <h3 class="gallery-title">Наши работы</h3>
+                <div id="imageGallery"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-image-content" id="fullSizeImage">
+          </div>
 
         <div style="height: 1px; width: 1px;"></div>
         
@@ -157,6 +171,14 @@
                 }
             });
         }
+    </script>
+    <script>
+        function menuOnClick() {
+            document.getElementById("menu-bar").classList.toggle("change");
+            document.getElementById("nav").classList.toggle("change");
+            document.getElementById("menu-bg").classList.toggle("change-bg");
+        }
+        const closeMobileMenuBtn = $("#menu-bar")[0];
     </script>
     <script src="scripts/services-worker.js"></script>
 </body>
