@@ -12,10 +12,13 @@
 <body>
     <div class="content">
         <header class="site-header">
-            <div class="logo" onclick="scrollToTop();">
-                <h1 style="font-family: Oldtimer;">Волжский Сервис</h1>
-                <h3 style="font-family: Luminova;">Аутсорсинговая компания</h3>
-            </div>
+            <div class="logo disableSelection" onclick="scrollToTop();">
+                <div class="logo-img"></div>
+                <div class="logo-text">
+                  <h1 id="vol-ser" style="font-family: Oldtimer;">Волжский Сервис</h1>
+                  <h3 id="aut-com" style="font-family: Luminova;">Аутсорсинговая компания</h3>
+                </div>
+              </div>
 
             <div id="menu">
                 <div id="menu-bar" onclick="menuOnClick()">
@@ -34,7 +37,7 @@
                 </nav> 
               </div>
             <div class="menu-bg" id="menu-bg"></div>
-            <span style="visibility: hidden;"><button class="button-21">Ты нашел пасхалку</button></span>
+            <span id="egg" style="visibility: hidden;"><button class="button-21">Ты нашел пасхалку</button></span>
 
             <nav id="nav-pc">
                 <span><a href="#about"><button class="button-21">О компании</button></a></span>
@@ -44,6 +47,24 @@
             </nav>
         </header>
 
+        <div style="position: relative;">
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+            <div class="slideshow-container">
+                
+                <div class="slides">
+                    <!-- Dyncamic insert -->
+                </div>
+                
+                <div class="dots">
+                    <!-- Dyncamic insert -->
+                    <div id="about"></div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!--
         <div class="container">
             <h1>«Волжский Сервис»</h1>
             <p id="con1-p" style="margin-top: -20px;">Мы рады работать для <u style="color: #00ffff;">Вас</u></p>
@@ -58,8 +79,9 @@
             </div>
             <div id="about"></div>
         </div>
+        -->
 
-        <div class="container2" id = "screw-background">
+        <div class="container" id = "screw-background">
             <h1 style="text-align: center;">О компании</h1>
             <div style="margin-left: 40px;">
                 <p id="neededList">
@@ -79,34 +101,75 @@
                     Компания <b style="color: #00ffff;">ВОЛЖСКИЙ СЕРВИС</b> решит все эти задачи для Вас.
                 </p>
             </div>
-            <div id="services"></div>
         </div>
-
-        <div class="container2">
+        
+        <div id="services"></div>
+        <div class="container">
+            
             <h1 style="text-align: center;">Услуги</h1>
-            <div class="services-grid"></div>
+            <div class="services-grid">
+                <!-- Dyncamic insert -->
+            </div>
+            <div id="partners"></div>
         </div>
 
         <div id="serviceModal" class="modal">
-            <div class="modal-content">
-              
-              <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2 id="modalTitle"></h2>
-              </div>
-              <div class="modal-body">
-                <p id="modalDescription"></p>
-                <h3 class="gallery-title">Наши работы</h3>
-                <div id="imageGallery"></div>
-              </div>
+            <div id = "modalContent" class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2 id="modalTitle"></h2>
+                </div>
+                <div class="modal-body">
+                    <p id="modalDescription"></p>
+                    <h3 class="gallery-title">Наши работы</h3>
+                    <div id="imageGallery">
+                        <!-- Dyncamic insert -->
+                    </div>
+                </div>
             </div>
-          </div>
+        </div>
           
-          <div id="imageModal" class="modal">
+        <div id="imageModal" class="modal">
             <span class="close">&times;</span>
-            <img class="modal-image-content" id="fullSizeImage">
-          </div>
+            <img id="fullSizeImage" class="modal-image-content" src="" alt="Full size image">
+        </div>
 
+        <div class="container">
+            <h1 style="text-align: center;">Парнеры</h1>
+            
+        </div>
+
+        <div class="container" id="contacts">
+            <div>
+                <img class="screw1" src="imgs/screw.png">
+                <img class="screw2" src="imgs/screw2.png">
+            </div>
+
+            <h1 style="text-align: center;">Контакты</h1>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="topic">Тема:</label>
+                    <select id="topic" name="topic" required>
+                        <option value="">Выберите тему</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="button-21">Отправить</button>
+            </form>
+        </div>
+
+        <p id="bottom-text">© 2024 ВОЛЖСКИЙ СЕРВИС</p>
         <div style="height: 1px; width: 1px;"></div>
         
     </div>
@@ -161,13 +224,34 @@
         setInterval(generateCircles, 10000);
 
         if ($(document).width() < 1000) {
-            document.body.addEventListener("scroll", (event) => {
+            document.body.addEventListener("scroll", () => {
                 if (document.body.scrollTop > 20) {
                     let opacity = lerp(1, 0, (document.body.scrollTop - 20) / 120);
                     opacity = Math.max(0, Math.min(1, opacity));
                     $(".logo h3").css("opacity", opacity);
+                    //chech if media is 768
+                    if (window.matchMedia('(max-width: 768px)').matches) 
+                        $(".logo h1").css("opacity", opacity);
+
+                        if (opacity === 0) {
+                            $(".logo h3").css("display", "none");
+                            if (window.matchMedia('(max-width: 768px)').matches) {
+                                $(".logo h1").css("display", "none");
+                                $(".logo-img").css("margin-top", "2px");
+                            }
+                        }
+                        else {
+                            $(".logo h3").css("display", "block");
+                            if (window.matchMedia('(max-width: 768px)').matches) {
+                                $(".logo h1").css("display", "block");
+                                $(".logo-img").css("margin-top", "-5px");
+                            }
+                        }
+                
                 } else {
                     $(".logo h3").css("opacity", 1);
+                    if (window.matchMedia('(max-width: 768px)').matches)
+                        $(".logo h1").css("opacity", 1);
                 }
             });
         }
@@ -180,6 +264,8 @@
         }
         const closeMobileMenuBtn = $("#menu-bar")[0];
     </script>
+    <script src="scripts/slideshow.js"></script>
     <script src="scripts/services-worker.js"></script>
+    <script src="scripts/contact.js"></script>
 </body>
 </html>
