@@ -1,12 +1,16 @@
 html,body {
-        height: 100%;
-        margin: 0;
-        background: #000;
-        color: white;
-        min-width: 1px;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
-    }
+  height: 100%;
+  margin: 0;
+  background: #000;
+  color: white;
+  min-width: 1px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
 
 #egg {
   display: none;
@@ -153,12 +157,12 @@ nav {
 .slideshow-container {
   position: relative;
   margin: 0 auto;
-  width: 80%;
-  height: 100vh;
+  width: 85%;
+  height: 95vh;
   overflow: hidden;
   border-radius: 25px;
   margin-bottom: 80px;
-  margin-top: 18px;
+  margin-top: 25px;
 }
 
 .slides {
@@ -604,105 +608,106 @@ nav {
 
 @media (max-width: 1000px) {
   #nav-pc {
-      display: none;
+    display: none;
   }
   
   .container, .container2 {
-      width: 90%;
-      font-size: 0.8em;
-      margin-bottom: 40px;
-      background-color: rgba(35, 50, 77, 0.199);
+    width: 90%;
+    font-size: 0.8em;
+    margin-bottom: 40px;
+    background-color: rgba(35, 50, 77, 0.199);
   }
 
   .container h2 {
-      word-spacing: normal;
-      text-align: center;
+    word-spacing: normal;
+    text-align: center;
   }
 
   .container2 h1 {
-      margin-bottom: 10px;
+    margin-bottom: 10px;
   }
 
   .con1-h2 {
-      margin-top: 20px;
+    margin-top: 20px;
   }
 
   .con1-h2-last {
-      margin-bottom: 20px;
-      margin-top: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
   }
 
   #con1-p {
-      margin-bottom: 0px;
+    margin-bottom: 0px;
   }
 
   #neededList {
-      font-size: medium;
+    font-size: medium;
   }
 
   #screw-background {
-      background-size: cover;
-      background-position: center;
+    background-size: cover;
+    background-position: center;
   }
 
   .services-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .service-item {
-      padding: 15px;
+    padding: 15px;
   }
 
   .service-icon {
-      width: 70px;
-      height: 70px;
+    width: 70px;
+    height: 70px;
   }
 
   .service-description {
-      font-size: 1.1em;
+    font-size: 1.1em;
   }
 
   .modal-content {
-      width: 90%;
-      margin: 5% auto;
-    }
-    
-    .modal-header {
-      padding: 15px 20px;
-    }
-    
-    .modal-body {
-      padding: 20px;
-    }
-    
-    #imageGallery img {
-      max-width: 100%;
-    }
-    
-    #modalTitle {
-      font-size: 1.1em;
-    }
-    
-    #modalDescription {
-      font-size: 1em;
-    }
-    
-    .gallery-title {
-      font-size: 1.3em;
-    }
+    width: 90%;
+    margin: 5% auto;
+  }
+  
+  .modal-header {
+    padding: 15px 20px;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  #imageGallery img {
+    max-width: 100%;
+  }
+  
+  #modalTitle {
+    font-size: 1.1em;
+  }
+  
+  #modalDescription {
+    font-size: 1em;
+  }
+  
+  .gallery-title {
+    font-size: 1.3em;
+  }
 
-    .slideshow-container {
-      height: 70vh;
-      margin-top: 140px;
-    }
+  .slideshow-container {
+    height: 70vh;
+    margin-top: 120px;
+    width: 95%;
+  }
 
   ::-webkit-scrollbar {
-      -webkit-appearance: none;
-      width: 0px;
+    -webkit-appearance: none;
+    width: 0px;
   }
 
   * {
-      scrollbar-width: none;
+    scrollbar-width: none;
   }
 }
 
@@ -734,6 +739,10 @@ nav {
 
   .slide-caption {
     font-size: 16px;
+  }
+
+  .slideshow-container {
+    margin-top: 160px;
   }
 
   .logo {
